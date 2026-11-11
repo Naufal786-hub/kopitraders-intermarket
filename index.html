@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#080d18"><meta name="description" content="KopiTraders Intermarket Analyzer untuk memantau XAUUSD, DXY, yield, dan silver.">
+<link rel="manifest" href="manifest.json"><link rel="icon" href="icon.svg" type="image/svg+xml">
+<title>KopiTraders Intermarket</title>
+<style>
+:root{color-scheme:dark;--bg:#080d18;--panel:#121c2c;--line:#26364c;--cyan:#54d9e8;--muted:#9aaabe;--green:#46d39a;--red:#ff7382;--gold:#f3c66b}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#14243a 0,#080d18 48%);color:#f4f7fb;font:15px system-ui,-apple-system,Segoe UI,sans-serif}
+.wrap{max-width:900px;margin:auto;padding:20px 15px 40px}.brand{color:var(--cyan);letter-spacing:3px;font-weight:800;font-size:12px}.head{display:flex;justify-content:space-between;align-items:center;gap:12px}.pill{border:1px solid #5b5032;color:var(--gold);border-radius:20px;padding:6px 10px;font-size:11px}
+h1{font-size:26px;line-height:1.1;margin:7px 0}.sub{color:var(--muted);font-size:12px}.hero,.card{background:linear-gradient(145deg,#172438,#101827);border:1px solid var(--line);border-radius:17px;padding:15px;margin-top:14px;box-shadow:0 10px 30px #0003}
+.hero small,.label{color:var(--muted);font-size:11px;letter-spacing:1px;font-weight:700}.bias{font-size:22px;font-weight:850;color:var(--gold);margin:5px 0}.notice{color:var(--muted);font-size:12px;line-height:1.5}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.metric{background:#0d1522;border:1px solid var(--line);padding:13px;border-radius:13px}.metric b{display:block;font-size:15px}.metric span{color:var(--muted);font-size:11px}
+h2{font-size:14px;margin:20px 0 8px;letter-spacing:.5px}.tv{height:360px;overflow:hidden;border-radius:12px;background:#0b1220}.tv iframe{width:100%;height:100%;border:0}
+input,select,button{font:inherit;border-radius:10px;border:1px solid var(--line);background:#0b1422;color:white;padding:11px;width:100%}button{background:#164353;border-color:#236678;font-weight:700;cursor:pointer}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.result{font-size:20px;font-weight:800;color:var(--cyan);margin-top:9px}.foot{font-size:10px;color:#7f8da1;line-height:1.5;margin-top:18px}
+@media(max-width:420px){.wrap{padding:16px 12px 30px}.tv{height:330px}.formgrid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body><main class="wrap">
+<header class="head"><div><div class="brand">KOPITRADERS</div><h1>INTERMARKET ANALYZER</h1><div class="sub">XAUUSD decision-support dashboard</div></div><div class="pill">LIVE WIDGETS</div></header>
+<section class="hero"><small>MARKET BIAS</small><div class="bias">WAIT FOR CONFIRMATION</div><div class="notice">Gunakan pergerakan antar-aset sebagai konteks, bukan sinyal entry otomatis. Periksa waktu pembaruan dan status pasar.</div></section>
+<h2>INTERMARKET MONITOR</h2>
+<div class="grid">
+<div class="metric"><b>XAU/USD</b><span>Spot gold · FX_IDC</span></div>
+<div class="metric"><b>DXY</b><span>US Dollar Index · TVC</span></div>
+<div class="metric"><b>US 10Y</b><span>Nominal Treasury yield</span></div>
+<div class="metric"><b>XAG/USD</b><span>Spot silver · FX_IDC</span></div>
+</div>
+<h2>GOLD — XAUUSD</h2><div class="card"><div class="tv"><iframe title="XAUUSD chart" src="https://s.tradingview.com/widgetembed/?frameElementId=tv_xau&symbol=FX%3AXAUUSD&interval=60&hidesidetoolbar=1&symboledit=0&saveimage=0&toolbarbg=101827&studies=[]&theme=dark&style=1&timezone=Asia%2FJakarta&withdateranges=1&hideideas=1&hidevolume=1&locale=id"></iframe></div></div>
+<h2>DXY — US DOLLAR INDEX</h2><div class="card"><div class="tv"><iframe title="DXY chart" src="https://s.tradingview.com/widgetembed/?frameElementId=tv_dxy&symbol=TVC%3ADXY&interval=60&hidesidetoolbar=1&symboledit=0&saveimage=0&toolbarbg=101827&studies=[]&theme=dark&style=1&timezone=Asia%2FJakarta&withdateranges=1&hideideas=1&hidevolume=1&locale=id"></iframe></div></div>
+<h2>US 10Y YIELD</h2><div class="card"><div class="tv"><iframe title="US10Y chart" src="https://s.tradingview.com/widgetembed/?frameElementId=tv_yield&symbol=TVC%3AUS10Y&interval=D&hidesidetoolbar=1&symboledit=0&saveimage=0&toolbarbg=101827&studies=[]&theme=dark&style=1&timezone=Asia%2FJakarta&withdateranges=1&hideideas=1&hidevolume=1&locale=id"></iframe></div></div>
+<h2>SILVER — XAGUSD</h2><div class="card"><div class="tv"><iframe title="XAGUSD chart" src="https://s.tradingview.com/widgetembed/?frameElementId=tv_xag&symbol=FX%3AXAGUSD&interval=60&hidesidetoolbar=1&symboledit=0&saveimage=0&toolbarbg=101827&studies=[]&theme=dark&style=1&timezone=Asia%2FJakarta&withdateranges=1&hideideas=1&hidevolume=1&locale=id"></iframe></div></div>
+<h2>RISK CALCULATOR — XAUUSD</h2>
+<section class="card">
+<div class="formgrid"><label class="sub">Balance USD<input id="bal" type="number" value="100" min="0" step="0.01"></label><label class="sub">Risk %<input id="risk" type="number" value="1" min="0.1" max="10" step="0.1"></label><label class="sub">Entry price<input id="entry" type="number" placeholder="Contoh 4000" step="0.01"></label><label class="sub">Stop loss price<input id="sl" type="number" placeholder="Contoh 3995" step="0.01"></label></div>
+<button style="margin-top:12px" onclick="calc()">Hitung risiko</button><div class="result" id="out">Masukkan entry dan SL</div><div class="notice">Asumsi kontrak XAUUSD standar 100 oz per lot. Hasil belum memasukkan komisi, spread, swap, slippage, atau aturan kontrak broker. Verifikasi spesifikasi simbol broker sebelum digunakan.</div>
+</section>
+<div class="foot">Sumber chart eksternal: TradingView. Data dapat tertunda dan ketersediaan simbol bergantung pada penyedia/broker. US10Y adalah yield nominal, bukan real yield. Belum ada feed FedWatch/CPI otomatis pada versi ini. Bukan nasihat keuangan atau sinyal trading otomatis.</div>
+</main>
+<script>
+function calc(){const b=+document.getElementById('bal').value,r=+document.getElementById('risk').value,e=+document.getElementById('entry').value,s=+document.getElementById('sl').value;const out=document.getElementById('out');if(!(b>0&&r>0&&e>0&&s>0&&e!==s)){out.textContent='Isi balance, risk, entry, dan SL dengan benar.';return;}const risk=b*r/100,dist=Math.abs(e-s),lot=risk/(dist*100);out.textContent=`Risiko: $${risk.toFixed(2)} · Jarak SL: $${dist.toFixed(2)} · Lot teoritis: ${lot.toFixed(3)}`;}
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));}
+</script></body></html>
